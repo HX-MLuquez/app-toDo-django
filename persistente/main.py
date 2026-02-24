@@ -64,6 +64,7 @@ class GestorHobbies:
 
 def main():
     gestor = GestorHobbies()
+    print("Programa Gestor de Hobbies iniciado")
     gestor.pedir_hobbies()
     # gestor.guardar_en_archivo()
     gestor.guardar_en_archivo_append()
