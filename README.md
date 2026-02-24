@@ -6,3 +6,15 @@ Aplicación de gestión de tareas (ToDo) desarrollada con Django. Permite a los 
 ## Pasos
 1. Crear un nuevo proyecto de Django.
 2. Crear una nueva aplicación dentro del proyecto.
+
+
+* Un .gitignore para evitar subir archivos innecesarios al repositorio.
+```bash
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+*.log
+
+.env
+```

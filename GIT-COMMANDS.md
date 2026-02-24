@@ -491,6 +491,7 @@ git push origin --delete release/nombre-de-la-version
 
 ```bash
 git checkout -b hotfix/nombre-del-error master
+git checkout -b hotfix/nombre-del-error main
 ```
 
 En esta rama se solucionará el error y se fusionará en master y develop.
