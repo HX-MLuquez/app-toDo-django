@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Formulario</title>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 600px;
+        margin: 40px auto;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 8px 12px;
+        background: #28a745;
+        color: white;
+        border: none;
+      }
+      a {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{% if task %}Editar{% else %}Nueva{% endif %} Tarea</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <input
+        type="text"
+        name="title"
+        placeholder="Título de la tarea"
+        value="{% if task %}{{ task.title }}{% endif %}"
+        required
+      />
+
+      {% if task %}
+      <label>
+        <input
+          type="checkbox"
+          name="completed"
+          {%
+          if
+          task.completed
+          %}checked{%
+          endif
+          %}
+        />
+        Completada
+      </label>
+      <br /><br />
+      {% endif %}
+
+      <button type="submit">Guardar</button>
+      <a href="{% url 'task_list' %}">Cancelar</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ToDo App</title>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 600px;
+        margin: 40px auto;
+      }
+      .task {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      a {
+        text-decoration: none;
+        margin-left: 10px;
+      }
+      .btn {
+        background: #007bff;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Tareas</h1>
+
+    <a class="btn" href="{% url 'task_create' %}">+ Nueva Tarea</a>
+
+    <hr />
+
+    {% for task in tasks %}
+    <div class="task">
+      <span class="{% if task.completed %}completed{% endif %}">
+        {{ task.title }}
+      </span>
+      <a href="{% url 'task_edit' forloop.counter0 %}">Editar</a>
+    </div>
+    {% empty %}
+    <p>No hay tareas todavía.</p>
+    {% endfor %}
+  </body>
+</html>
